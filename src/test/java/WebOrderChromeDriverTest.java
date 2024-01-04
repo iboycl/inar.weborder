@@ -3,7 +3,16 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import pages.HomePage;
+import pages.OrderPage;
+import pages.WeborderHomePage;
+import pages.WeborderLoginPage;
+
+import java.time.Duration;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class WebOrderChromeDriverTest {
 
@@ -11,41 +20,30 @@ public class WebOrderChromeDriverTest {
 
 	@BeforeEach
 	void setUpTestEnvironment() {
-		driver = new ChromeDriver();
-		driver.manage().window().maximize();
+		driver = new ChromeDriver(new ChromeOptions().addArguments("--start-maximized"));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 	}
 
 	@Test
 	void testSeleniumWebDriver() throws InterruptedException {
 		driver.get("https://InarAcademy:Fk160621.@test.inar-academy.com");
 
-		String currentURL = driver.getCurrentUrl();
-		assertEquals("https://InarAcademy:Fk160621.@test.inar-academy.com/", currentURL);
+		HomePage homePage = new HomePage(driver);
 
-		WebElement webOrder = driver.findElement(By.xpath("//a[@href='/weborder']"));
+		WeborderLoginPage weborderLoginPage = homePage.clickOnWebOrderLink();
+		WeborderHomePage weborderHomePage = weborderLoginPage.login("Inar", "Academy");
+		OrderPage orderPage = weborderHomePage.navigateToOrder();
 
-		webOrder.click();
+		String totalPrice = orderPage.calculatePrice("Books", "10", "10");
+		assertEquals("810", totalPrice);
 
-		WebElement userInputField = driver.findElement(By.id("login-username-input"));
-		userInputField.sendKeys("Inar");
+		orderPage.enterCustomerInfo("Inar Academy", "deneme 1124", "Austin", "TX", "70178");
 
-		WebElement passwordInputField = driver.findElement(By.id("login-password-input"));
-		passwordInputField.sendKeys("Academy");
+		orderPage.enterPaymentInfo("amex", "342738261027163", "11/20");
 
-		WebElement loginButton = driver.findElement(By.id("login-button"));
-		loginButton.click();
-
+		WebElement orderSuccessAlert = driver.findElement(By.xpath("//div[text()='New order has been successfully added.']"));
+		assertTrue(orderSuccessAlert.isDisplayed());
 		Thread.sleep(5000);
-		WebElement welcomeText = driver.findElement(By.id("welcome-heading"));
-
-		assertEquals("Welcome, Inar!", welcomeText.getText());
-
-		/*
-		 * ((JavascriptExecutor) driver).executeScript("window.open()"); ArrayList<String>
-		 * tabs = new ArrayList<>(driver.getWindowHandles());
-		 *
-		 * Thread.sleep(2000); driver.switchTo().window(tabs.get(2));
-		 */
 
 	}
 
