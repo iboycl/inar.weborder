@@ -1,72 +1,76 @@
 package pages;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
-public class HomePage {
+public class HomePage extends BasePage {
 
-    private WebDriver driver;
+	// Locators
+	@FindBy(linkText = "Weborder")
+	private WebElement webOrderLink;
 
-    //Locators
+	@FindBy(linkText = "Webautomation")
+	private WebElement webAutomationLink;
 
-    private By webOrderLink = By.linkText("Weborder");
+	@FindBy(linkText = "Target Market")
+	private WebElement targetMarketLink;
 
-    private By webAutomationLink = By.linkText("Weborder");
+	@FindBy(linkText = "Booking")
+	private WebElement bookingLink;
 
-    private By targetMarketLink = By.linkText("Target Market");
+	@FindBy(linkText = "Handling Certifications")
+	private WebElement handlingCertificationsLink;
 
-    private By bookingLink = By.linkText("Booking");
+	@FindBy(linkText = "File Uploading")
+	private WebElement fileUploadingLink;
 
-    private By handlingCertificationsLink = By.linkText("Handling Certifications");
+	@FindBy(className = "theme-switcher")
+	private WebElement themeSwitcherToggleButton;
 
-    private By fileUploadingLink = By.linkText("File Uploading");
+	@FindBy(css = "h1.display-1.text-fifth")
+	private WebElement exploreInarTestingWorldTitleText;
 
-    private By themeSwitcherToggleButton = By.className("theme-switcher");
+	// Constructor
+	public HomePage() throws InterruptedException {
+		super();
+	}
 
-    private By exploreInarTestingWorldTitleText = By.cssSelector("h1.display-1.text-fifth");
+	// Actions with Java methods
 
-    //Constructor
-    public HomePage (WebDriver driver) {
-        this.driver = driver;
-    }
+	public void clickOnWebOrderLink() {
+		webOrderLink.click();
+	}
 
-    //Actions with Java methods
+	public void clickOnAutomationLink() {
+		webAutomationLink.click();
+	}
 
-    public WeborderLoginPage clickOnWebOrderLink(){
-        driver.findElement(webOrderLink).click();
-        return new WeborderLoginPage(driver);
-    }
+	public void clickOnTargetMarketLink() {
+		targetMarketLink.click();
+	}
 
-    public void clickOnAutomationLink(){
-        driver.findElement(webAutomationLink).click();
-    }
+	public void clickOnBookingLink() {
+		bookingLink.click();
+	}
 
-    public void clickOnTargetMarketLink(){
-        driver.findElement(targetMarketLink).click();
-    }
+	public void clickOnHandlingCertificationsLink() {
+		handlingCertificationsLink.click();
+	}
 
-    public void clickOnBookingLink(){
-        driver.findElement(bookingLink).click();
-    }
+	public void clickOnFileUploadingLink() {
+		fileUploadingLink.click();
+	}
 
-    public void clickOnHandlingCertificationsLink(){
-        driver.findElement(handlingCertificationsLink).click();
-    }
+	public void clickOnThemeSwitcherToggleButton() {
+		themeSwitcherToggleButton.click();
+	}
 
-    public void clickOnFileUploadingLink(){
-        driver.findElement(fileUploadingLink).click();
-    }
+	public String getWelcomeText() {
+		return exploreInarTestingWorldTitleText.getText();
+	}
 
-    public void clickOnThemeSwitcherToggleButton(){
-        driver.findElement(themeSwitcherToggleButton).click();
-    }
-
-    public String getWelcomeText(){
-        return driver.findElement(exploreInarTestingWorldTitleText).getText();
-    }
-
-    public void refreshPage() {
-        driver.navigate().refresh();
-    }
+	public void refreshPage() {
+		driver.navigate().refresh();
+	}
 
 }

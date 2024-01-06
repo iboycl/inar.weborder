@@ -1,11 +1,9 @@
 package pages;
 
-import org.openqa.selenium.WebDriver;
+public class ViewAllProducts extends BasePage {
 
-public class ViewAllProducts {
-    private WebDriver driver;
+	public ViewAllProducts() throws InterruptedException {
+		super();
+	}
 
-    public ViewAllProducts(WebDriver driver) {
-        this.driver = driver;
-    }
 }
