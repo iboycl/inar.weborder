@@ -1,42 +1,41 @@
 package pages;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
-public class WeborderLoginPage {
+public class WeborderLoginPage extends BasePage {
 
-    private WebDriver driver;
+	// Locators
+	@FindBy(id = "login-username-input")
+	WebElement userIdInputField;
 
-    //Locators
-    private By userIdInputField = By.id("login-username-input");
+	@FindBy(id = "login-password-input")
+	WebElement passwordInputField;
 
-    private By passwordInputField = By.id("login-password-input");
+	@FindBy(id = "login-button")
+	WebElement loginButton;
 
-    private By loginButton = By.id("login-button");
+	// Constructor
+	public WeborderLoginPage() throws InterruptedException {
+		super();
+	}
 
+	public void enterUserName(String userName) {
+		userIdInputField.sendKeys(userName);
+	}
 
-    //Constructor
-    public WeborderLoginPage(WebDriver driver) {
-        this.driver = driver;
-    }
+	public void enterPassword(String password) {
+		passwordInputField.sendKeys(password);
+	}
 
-    public void enterUserName (String userName) {
-        driver.findElement(userIdInputField).sendKeys(userName);
-    }
+	public void clickLoginButton() {
+		loginButton.click();
+	}
 
-    public void enterPassword (String password) {
-        driver.findElement(passwordInputField).sendKeys(password);
-    }
+	public void login(String userName, String password) {
+		enterUserName(userName);
+		enterPassword(password);
+		clickLoginButton();
+	}
 
-    public void clickLoginButton() {
-        driver.findElement(loginButton).click();
-    }
-
-    public WeborderHomePage login(String userName, String password) {
-        enterUserName(userName);
-        enterPassword(password);
-        clickLoginButton();
-
-        return new WeborderHomePage(driver);
-    }
 }

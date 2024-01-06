@@ -1,35 +1,33 @@
 package pages;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
-public class WeborderHomePage {
+public class WeborderHomePage extends BasePage {
 
-    private WebDriver driver;
+	@FindBy(id = "view-orders-tab")
+	WebElement viewAllOrdersLink;
 
-    private By viewAllOrdersLink = By.id("view-orders-tab");
+	@FindBy(id = "view-products-tab")
+	WebElement viewAllProductsLink;
 
-    private By viewAllProductsLink = By.id("view-products-tab");
+	@FindBy(id = "order-tab")
+	WebElement orderLink;
 
-    private By orderLink = By.id("order-tab");
+	public WeborderHomePage() throws InterruptedException {
+		super();
+	}
 
+	public void navigateToViewAllOrders() {
+		viewAllOrdersLink.click();
+	}
 
-    public WeborderHomePage(WebDriver driver){
-        this.driver = driver;
-    }
+	public void navigateToViewAllProducts() {
+		viewAllProductsLink.click();
+	}
 
-    public ViewAllOrdersPage navigateToViewAllOrders() {
-        driver.findElement(viewAllOrdersLink).click();
-        return new ViewAllOrdersPage(driver);
-    }
-    public ViewAllProducts navigateToViewAllProducts() {
-        driver.findElement(viewAllProductsLink).click();
-        return new ViewAllProducts(driver);
-    }
-    public OrderPage navigateToOrder() {
-        driver.findElement(orderLink).click();
-        return new OrderPage(driver);
-    }
-
+	public void navigateToOrder() {
+		orderLink.click();
+	}
 
 }

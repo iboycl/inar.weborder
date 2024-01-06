@@ -6,7 +6,7 @@
 
     <groupId>org.inar</groupId>
     <artifactId>inar.weborder</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.2</version>
     
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
@@ -14,7 +14,9 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <selenium.version>4.16.1</selenium.version>
         <junit.version>5.10.1</junit.version>
-</properties>
+        <!-- default browser type-->
+        <browser>chrome</browser>
+    </properties>
 
 
     <dependencies>
@@ -43,7 +45,7 @@
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-params</artifactId>
-	    <version>${junit.version}</version>
+	        <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
 </dependencies>
