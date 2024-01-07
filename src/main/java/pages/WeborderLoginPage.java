@@ -16,7 +16,7 @@ public class WeborderLoginPage extends BasePage {
 	WebElement loginButton;
 
 	// Constructor
-	public WeborderLoginPage() throws InterruptedException {
+	public WeborderLoginPage() {
 		super();
 	}
 

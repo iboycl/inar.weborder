@@ -2,7 +2,7 @@ package pages;
 
 public class ViewAllProducts extends BasePage {
 
-	public ViewAllProducts() throws InterruptedException {
+	public ViewAllProducts() {
 		super();
 	}
 

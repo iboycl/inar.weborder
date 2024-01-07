@@ -10,7 +10,7 @@ public abstract class BasePage {
 
 	WebDriver driver = Driver.getDriver();
 
-	public BasePage() throws InterruptedException {
+	public BasePage() {
 		PageFactory.initElements(driver, this);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 

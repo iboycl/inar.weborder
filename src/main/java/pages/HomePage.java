@@ -31,7 +31,7 @@ public class HomePage extends BasePage {
 	private WebElement exploreInarTestingWorldTitleText;
 
 	// Constructor
-	public HomePage() throws InterruptedException {
+	public HomePage() {
 		super();
 	}
 

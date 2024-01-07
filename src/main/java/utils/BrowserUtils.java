@@ -9,16 +9,16 @@ public class BrowserUtils {
 	 * @params pixelAmount
 	 */
 
-	public static void scrollVertically(int pixelAmount) throws InterruptedException {
+	public static void scrollVertically(int pixelAmount) {
 		JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
 		js.executeScript("window.scroll(0," + pixelAmount + ")");
 	}
 
-	public static void scrollDown() throws InterruptedException {
+	public static void scrollDown() {
 		scrollVertically(1000);
 	}
 
-	public static void scrollUp() throws InterruptedException {
+	public static void scrollUp() {
 		scrollVertically(-1000);
 	}
 

@@ -14,7 +14,7 @@ public class WeborderHomePage extends BasePage {
 	@FindBy(id = "order-tab")
 	WebElement orderLink;
 
-	public WeborderHomePage() throws InterruptedException {
+	public WeborderHomePage() {
 		super();
 	}
 

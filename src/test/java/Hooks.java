@@ -5,12 +5,12 @@ import utils.Driver;
 public class Hooks {
 
 	@BeforeAll
-	public static void setupTestEnvironment() throws InterruptedException {
+	public static void setupTestEnvironment() {
 		Driver.getDriver();
 	}
 
 	@AfterAll
-	public static void tearDownTestEnvironment() throws InterruptedException {
+	public static void tearDownTestEnvironment() {
 		if (Driver.getDriver() != null) {
 			Driver.getDriver().quit();
 		}

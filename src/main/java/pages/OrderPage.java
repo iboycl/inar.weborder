@@ -64,7 +64,7 @@ public class OrderPage extends BasePage {
 	@FindBy(xpath = "//div[text()='New order has been successfully added.']")
 	WebElement orderSuccessAlert;
 
-	public OrderPage() throws InterruptedException {
+	public OrderPage() {
 		super();
 	}
 

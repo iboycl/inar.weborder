@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class WebOrderTest extends Hooks {
 
 	@Test
-	void testSeleniumWebDriver() throws InterruptedException {
+	void testSeleniumWebDriver() {
 
 		HomePage homePage = new HomePage();
 
@@ -30,7 +30,11 @@ public class WebOrderTest extends Hooks {
 		orderPage.enterPaymentInfo("amex", "342738261027163", "11/20");
 
 		assertTrue(orderPage.orderSuccessAlertIsDisplayed());
-		Thread.sleep(5000);
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			throw new RuntimeException(e);
+		}
 
 	}
 
