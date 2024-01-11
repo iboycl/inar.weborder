@@ -5,9 +5,6 @@ import pages.OrderPage;
 import pages.WeborderHomePage;
 import pages.WeborderLoginPage;
 
-import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertTrue;
-
 public class WebOrderTest2 extends Hooks {
 
 	@Test
