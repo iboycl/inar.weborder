@@ -17,9 +17,12 @@ public class Driver {
 	}
 
 	public synchronized static WebDriver getDriver() {
+		return getDriver(System.getProperty("browser", "chrome"));
+	}
+
+	public synchronized static WebDriver getDriver(String browser) {
 		if (DRIVER_THREAD_LOCAL.get() == null) {
 			WebDriver driver;
-			String browser = System.getProperty("browser", "chrome");
 
 			switch (browser.toLowerCase()) {
 				case "edge" -> {
@@ -45,7 +48,8 @@ public class Driver {
 			driver.get("https://InarAcademy:Fk160621.@test.inar-academy.com");
 			try {
 				Thread.sleep(1000);
-			} catch (InterruptedException e) {
+			}
+			catch (InterruptedException e) {
 				throw new RuntimeException(e);
 			}
 
@@ -53,7 +57,8 @@ public class Driver {
 				driver.navigate().refresh();
 				try {
 					Thread.sleep(1000);
-				} catch (InterruptedException e) {
+				}
+				catch (InterruptedException e) {
 					throw new RuntimeException(e);
 				}
 			}
@@ -69,4 +74,5 @@ public class Driver {
 			DRIVER_THREAD_LOCAL.remove();
 		}
 	}
+
 }

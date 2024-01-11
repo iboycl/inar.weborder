@@ -8,7 +8,7 @@ import pages.WeborderLoginPage;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
-public class WebOrderTest extends Hooks {
+public class WebOrderTest1 extends Hooks {
 
 	@Test
 	void testSeleniumWebDriver() {
@@ -17,6 +17,7 @@ public class WebOrderTest extends Hooks {
 
 		homePage.clickOnWebOrderLink();
 		WeborderLoginPage weborderLoginPage = new WeborderLoginPage();
+		weborderLoginPage.login("Inar", "Academy");
 
 	}
 

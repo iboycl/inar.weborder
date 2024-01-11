@@ -1,0 +1,20 @@
+<suite name="smoke" parallel="classes" thread-count="4">
+    <test name="WebOrder ChromeTest">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="WebOrderTest"/>
+            <class name="WebOrderTest1"/>
+            <class name="WebOrderTest2"/>
+            <class name="WebOrderTest4"/>
+        </classes>
+    </test>
+    <test name="WebOrder EdgeTest">
+        <parameter name="browser" value="edge"/>
+        <classes>
+            <class name="WebOrderTest"/>
+            <class name="WebOrderTest1"/>
+            <class name="WebOrderTest2"/>
+            <class name="WebOrderTest4"/>
+        </classes>
+    </test>
+</suite>

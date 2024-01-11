@@ -1,0 +1,22 @@
+<suite name="smoke">
+    <test name="login">
+        <classes>
+            <class name="FirstClass">
+                <methods>
+                    <include name="testA"/>
+                </methods>
+            </class>
+            <class name="SecondClass">
+                <methods>
+                    <include name="testD"/>
+                    <include name="testF"/>
+                </methods>
+            </class>
+            <class name="ThirdClass">
+                <methods>
+                    <include name="testG"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
