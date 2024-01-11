@@ -6,7 +6,7 @@
 
     <groupId>org.inar</groupId>
     <artifactId>inar.weborder</artifactId>
-    <version>1.0.2</version>
+    <version>1.0.4</version>
     
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
@@ -26,29 +26,15 @@
             <version>${selenium.version}</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/org.testng/testng -->
         <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
-            <version>${junit.version}</version>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>7.9.0</version>
             <scope>test</scope>
         </dependency>
 
-        <!-- JUnit Jupiter Engine to run the tests -->
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-engine</artifactId>
-            <version>${junit.version}</version>
-            <scope>test</scope>
-        </dependency>
-
-        <!-- JUnit Jupiter Params for parameterized tests -->
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-params</artifactId>
-	        <version>${junit.version}</version>
-            <scope>test</scope>
-        </dependency>
-</dependencies>
+    </dependencies>
 
 <build>
         <plugins>
@@ -67,11 +53,10 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.2.3</version>
                 <configuration>
-                    <!-- Specific configuration for JUnit 5. -->
-                    <useModulePath>false</useModulePath>
-                    <includes>
-                        <include>**/*.java</include>
-                    </includes>
+                    <!-- Specific configuration for testNG -->
+                    <suiteXmlFiles>
+                        <suiteXmlFile>regressionTests.xml</suiteXmlFile>
+                    </suiteXmlFiles>
                 </configuration>
             </plugin>
             <plugin>
